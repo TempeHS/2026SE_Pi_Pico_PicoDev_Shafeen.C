@@ -17,53 +17,48 @@ lhs_servo = Servo(pwm=lhs_servo_pwm)
 
 class Move:
     def __init__(self, lhs_servo, rhs_servo, debug=False):
-        self.__lhs_servo = lhs_servo
-        self.__rhs_servo = rhs_servo 
+        self.__lhs_servo = lhs_servo  # Left wheel servo
+        self.__rhs_servo = rhs_servo  # Right wheel servo
         self.__debug = debug
 
     def forward(self):
         if self.__debug:
             print("Going forward")
-        #rwheel
-        self.__rhs_servo.set_duty(500)
-        #lwheel
-        self.__lhs_servo.set_duty(2500)
+        self.__rhs_servo.set_duty(2500)  # Right wheel forward
+        self.__lhs_servo.set_duty(500)   # Left wheel forward
         time.sleep(2)
-        
 
     def backwards(self):
         if self.__debug:
             print("Going backwards")
-        self.__rhs_servo.set_duty(2500)
-        self.__lhs_servo.set_duty(500)
+        self.__rhs_servo.set_duty(500)   # Right wheel backward
+        self.__lhs_servo.set_duty(2500)  # Left wheel backward
         time.sleep(2)
 
     def left(self):
         if self.__debug:
-            print("Turning left")
-        self.__rhs_servo.set_duty(2500)
-        self.__lhs_servo.set_duty(1500)
+            print("Turning right")
+        self.__rhs_servo.set_duty(2500)  # Right wheel forward
+        self.__lhs_servo.set_duty(1500)  # Left wheel stop
         time.sleep(2)
-
 
     def right(self):
         if self.__debug:
-            print("Turning right")
-        self.__rhs_servo.set_duty(500)
-        self.__lhs_servo.set_duty(1500)
+            print("Turning left")
+        self.__rhs_servo.set_duty(500)  # Right wheel stop
+        self.__lhs_servo.set_duty(1500)   # Left wheel forward
         time.sleep(2)
-
 
     def spin(self):
         if self.__debug:
-            print("spinning")
-        self.__rhs_servo.set_duty(2500)
-        self.__lhs_servo.set_duty(2500)
+            print("Spinning in place")
+        self.__rhs_servo.set_duty(2500)  # Right wheel forward
+        self.__lhs_servo.set_duty(2500)  # Left wheel backward (mirrored forward)
         time.sleep(2)
-    
+
     def stop(self):
         if self.__debug:
             print("STOP")
-        self.__rhs_servo.set_duty(1500)
-        self.__lhs_servo.set_duty(1500)
+        self.__rhs_servo.set_duty(1500)  # Neutral
+        self.__lhs_servo.set_duty(1500)  # Neutral
         time.sleep(2)

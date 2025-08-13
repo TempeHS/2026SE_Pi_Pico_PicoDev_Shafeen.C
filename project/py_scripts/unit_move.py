@@ -19,13 +19,13 @@ rhs_servo = Servo(pwm=rhs_servo_pwm)
 
 walking = Move(lhs_servo, rhs_servo, debug=True)
 print("Starting the walk...")
-walking.forward()
 walking.backwards()
+walking.forward()
 walking.left()
 walking.right()
 walking.stop()
 walking.spin()
-
+walking.stop()
 
 
 
