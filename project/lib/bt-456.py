@@ -46,11 +46,14 @@ while True:
         walking.backwards()  # Move forward after the turn
     else:
         print("Both sensors are blocked, reversing and trying again!")
-        walking.backwards()  # Move backward
-        time.sleep(1)  # Reverse for 1 second
-        walking.left()  # Turn left after backing up
-        time.sleep(1)  # Wait for turn
-        walking.forward()  # Move forward after turning
+        walking.forward
+        time.sleep(0.1)
+        walking.stop
+        time.sleep(0.1)
+        walking.backwards()
+        
+
+
 
 
     time.sleep(0.5)
