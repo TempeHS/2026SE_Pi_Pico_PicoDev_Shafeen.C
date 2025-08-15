@@ -24,8 +24,6 @@ walking.forward()
 walking.left()
 walking.right()
 walking.stop()
-walking.spin()
-walking.stop()
 
 
 

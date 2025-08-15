@@ -28,13 +28,10 @@ while True:
 
     print("Distance A:", dist_weea, "mm, Distance B:", dist_woob, "mm")
 
-    if dist_weea <= 100 or dist_woob <= 110:
+    if dist_weea <= 100 or dist_woob <= 100:
         print("Obstacle detected! Analyzing...")
         walking.stop()
         time.sleep(0.2)
-    
-    dist_weea = range_a.distance_mm
-    dist_woob = range_b.distance_mm
         
     if dist_weea < dist_woob:
         print("Turning right to avoid obstacle!")
