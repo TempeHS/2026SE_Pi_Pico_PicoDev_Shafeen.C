@@ -17,22 +17,53 @@ dead_zone_us = 1500
 
 rhs_servo = Servo(pwm=rhs_servo_pwm)
 lhs_servo = Servo(pwm=lhs_servo_pwm)
-
 walking = Move(lhs_servo, rhs_servo, debug=True)
+
+#start
 print("Initizlising")
 
 while True:
-    dist_wee = range_a.distance_mm
-    dist_woo = range_b.distance_mm
+    dist_weea = range_a.distance_mm
+    dist_woob = range_b.distance_mm
 
-    print(range_a.distance_mm, range_b.distance_mm)
-    
-    if dist_wee <= 35 or dist_woo <= 35:
+    print("Distance A:", dist_weea, "mm, Distance B:", dist_woob, "mm")
+
+    if dist_weea <= 100 or dist_woob <= 110:
+        print("Obstacle detected! Analyzing...")
         walking.stop()
-        walking.backwards()
-        walking.left()
+        time.sleep(0.2)
+    
+    dist_weea = range_a.distance_mm
+    dist_woob = range_b.distance_mm
+        
+    if dist_weea < dist_woob:
+        print("Turning right to avoid obstacle!")
+        walking.right()  # Turn right
+        time.sleep(0.5)  # Wait for the robot to turn
+        walking.backwards()  # Move forward after turning
+
+    if dist_weea < dist_woob:
+        print("Turning left to avoid obstacle!")
+        walking.left()  # Turn left
+        time.sleep(1)  # Allow time for the turn
+        walking.backwards()  # Move forward after the turn
     else:
-        walking.forward()
-    time.sleep(5)
+        print("Both sensors are blocked, reversing and trying again!")
+        walking.backwards()  # Move backward
+        time.sleep(1)  # Reverse for 1 second
+        walking.left()  # Turn left after backing up
+        time.sleep(1)  # Wait for turn
+        walking.forward()  # Move forward after turning
+
+
+    time.sleep(0.5)
+        
+
+            
+
+
+
+
+
 
 
