@@ -36,13 +36,11 @@ while True:
     if dist_weea < dist_woob:
         print("Turning right to avoid obstacle!")
         walking.right()  # Turn right
-        time.sleep(0.5)  # Wait for the robot to turn
         walking.backwards()  # Move forward after turning
 
     if dist_weea < dist_woob:
         print("Turning left to avoid obstacle!")
         walking.left()  # Turn left
-        time.sleep(1)  # Allow time for the turn
         walking.backwards()  # Move forward after the turn
     else:
         print("Both sensors are blocked, reversing and trying again!")
@@ -52,10 +50,6 @@ while True:
         time.sleep(0.1)
         walking.backwards()
         
-
-
-
-
     time.sleep(0.5)
         
 
