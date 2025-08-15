@@ -23,35 +23,35 @@ class Move:
 
     def forward(self):
         if self.__debug:
-            print("Going forward")
+            print("Going FORWARDS")
         self.__rhs_servo.set_duty(1000)  # Right wheel forward
         self.__lhs_servo.set_duty(2000)   # Left wheel forward
-        time.sleep(2)
+        time.sleep(1)
 
     def backwards(self):
         if self.__debug:
-            print("Going backwards")
+            print("Going BACKWARDS")
         self.__rhs_servo.set_duty(2000)   # Right wheel backward
         self.__lhs_servo.set_duty(1000)  # Left wheel backward
-        time.sleep(2)
+        time.sleep(1)
 
     def left(self):
         if self.__debug:
             print("Turning right")
-        self.__rhs_servo.set_duty(1500)  # Right wheel forward
-        self.__lhs_servo.set_duty(2000)  # Left wheel stop
-        time.sleep(2)
+        self.__rhs_servo.set_duty(2000)  # Right wheel forward
+        self.__lhs_servo.set_duty(1500)  # Left wheel stop
+        time.sleep(1)
 
     def right(self):
         if self.__debug:
             print("Turning left")
         self.__rhs_servo.set_duty(1500)  # Right wheel stop
         self.__lhs_servo.set_duty(1000)   # Left wheel forward
-        time.sleep(2)
+        time.sleep(1)
 
     def stop(self):
         if self.__debug:
             print("STOP")
         self.__rhs_servo.set_duty(1500)  # Neutral
         self.__lhs_servo.set_duty(1500)  # Neutral
-        time.sleep(2)
+        time.sleep(0.5)

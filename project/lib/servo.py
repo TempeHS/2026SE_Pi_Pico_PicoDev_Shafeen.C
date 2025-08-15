@@ -37,3 +37,4 @@ class Servo:
 
     def deinit(self):
         self.pwm.deinit()
+
