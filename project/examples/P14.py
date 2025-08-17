@@ -50,7 +50,7 @@ x = (WIDTH-1)/2   # starting position
 y = (HEIGHT-1)/2  # starting y position
 
 v = {'x': 2.3, # Starting velocity (pixels per animation frame)
-     'y': 3.5}
+    'y': 3.5}
 
 collisionCount = 0
 while True:
