@@ -62,9 +62,7 @@ class Controller:
                 sleep_ms(600)
             sleep_ms(100)
 
-if __name__ == "__main__":
-    controller = Controller()
-    controller.navigation()
+
             
 
 
