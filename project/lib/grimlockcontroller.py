@@ -25,7 +25,7 @@ class GrimlockController:
             distancea = self.range_a.distance_mm
             distanceb = self.range_b.distance_mm  
             self.movement.backward()
-            show_state("backward")
+            show_state("forward")
             print("Distance A (Left):", distancea, "mm, Distance B (Right):", distanceb, "mm")
             if distancea <= 100 and distanceb <= 99:
                 self.movement.stop()
@@ -59,7 +59,7 @@ class GrimlockController:
                 show_state("Green detected")
                 print("Green victim detected!")
                 self.movement.stop()
-                sleep_ms(1000)
+                sleep_ms(150)
                 continue  # skip the rest of the loop if green is detected
             sleep_ms(100)
 

@@ -7,7 +7,7 @@ class colorvictim:
     def __init__(self, debug=False):
         self.__debug = debug 
     
-    def greenvictim(self, threshold=50):
+    def greenvictim(self, threshold=150):
         data = colourSensor.readRGB()
         red = data['red'] # extract the RGB information from data
         grn = data['green']
