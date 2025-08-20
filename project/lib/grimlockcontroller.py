@@ -56,9 +56,9 @@ class GrimlockController:
                 show_state("left")
                 sleep_ms(600)
             if self.sensor.greenvictim():
-                show_state("Green detected")
-                print("Green victim detected!")
+                show_state("Green victim detected!")
                 self.movement.stop()
+                show_state("stop")
                 sleep_ms(150)
                 continue  # skip the rest of the loop if green is detected
             sleep_ms(100)
