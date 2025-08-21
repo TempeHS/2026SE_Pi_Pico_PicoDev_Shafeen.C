@@ -41,7 +41,7 @@ class Move:
             print("left (45 degrees)")
         self.__lh_servo.set_duty(500)    
         self.__rh_servo.set_duty(500)   
-        sleep_ms(300)                    
+        sleep_ms(500)                    
         self.stop()
 
     def right(self):
@@ -50,7 +50,7 @@ class Move:
         
         self.__lh_servo.set_duty(2500)   
         self.__rh_servo.set_duty(2500)  
-        sleep_ms(300)                    # 45-degree turn (adjust as needed)
+        sleep_ms(500)                    # 45-degree turn (adjust as needed)
         self.stop()
 
     def stop(self):

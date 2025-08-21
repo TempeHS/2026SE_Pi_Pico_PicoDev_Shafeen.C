@@ -24,6 +24,10 @@ class GrimlockController:
         while True:
             distancea = self.range_a.distance_mm
             distanceb = self.range_b.distance_mm  
+            if distancea <= 0 or distanceb <= 0:
+                print("Invalid reading from ultrasonic sensor")
+                sleep_ms(100)
+                continue  # Skip this loop
             self.movement.backward()
             show_state("forward")
             print("Distance A (Left):", distancea, "mm, Distance B (Right):", distanceb, "mm")

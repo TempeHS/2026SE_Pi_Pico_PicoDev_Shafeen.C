@@ -19,6 +19,12 @@ movement = Move(lh_servo, rh_servo, debug=True)
 while True:
     distancea = range_a.distance_mm  # Use as property, not method
     distanceb = range_b.distance_mm  # Use as property, not method
+       
+    if distancea <= 0 or distanceb <= 0:
+        print("Invalid reading from ultrasonic sensor")
+        sleep_ms(100)
+        continue  # Skip this loop
+
     movement.backward()
     print("Distance A (Left):", distancea, "mm, Distance B (Right):", distanceb, "mm")
     if distancea <= 100 and distanceb <= 99:
