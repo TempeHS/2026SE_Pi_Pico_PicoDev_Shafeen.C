@@ -38,7 +38,7 @@ class GrimlockController:
                 if distancea > distanceb:
                     self.movement.left()
                     show_state("left")
-                elif distanceb < distancea:
+                elif distancea < distanceb:
                     self.movement.right()
                     show_state("right")
                 else:
@@ -60,7 +60,8 @@ class GrimlockController:
                 show_state("left")
                 sleep_ms(600)
             if self.sensor.greenvictim():
-                show_state("Green victim detected!")
+                show_state("Green victim detected!S")
+                sleep_ms(450)
                 self.movement.stop()
                 show_state("stop")
                 sleep_ms(450)
